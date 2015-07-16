@@ -1,0 +1,10 @@
+<form action="https://imagesapi.s3.amazonaws.com/" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="key" value="uploads/${filename}">
+  <input type="hidden" name="acl" value="public-read"> 
+  <input type="hidden" name="success_action_redirect" value="http://localhost:3000/images">
+  <input type="hidden" name="Content-Type" value="image/jpeg">
+
+  <input name="file" type="file"> 
+  <br> 
+  <input type="submit" value="Upload image"> 
+</form>
