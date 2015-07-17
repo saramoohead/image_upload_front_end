@@ -1,4 +1,6 @@
 <% if @key %>
-  File <%= @key %> successfully uploaded<br>
+  File successfully uploaded to <a href="https://imagesapi.s3.amazonaws.com/<%= @key %>">https://imagesapi.s3.amazonaws.com/<%= @key %></a><br>
   <img src="https://imagesapi.s3.amazonaws.com/<%= @key %>">
+
+  <%= render 'caption' %>
 <% end %>

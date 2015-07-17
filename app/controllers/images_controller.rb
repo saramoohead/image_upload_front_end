@@ -19,4 +19,10 @@ class ImagesController < ApplicationController
   def new
   end
 
+  def create
+    @caption = params[:caption]
+
+    redirect_to new_image_path
+  end
+
 end
