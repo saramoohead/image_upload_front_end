@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
 
     bananas = HTTParty.post(
       "http://apiimages.herokuapp.com/images",
-      query: { "data": { "type": "images", "attributes": { "image-url": "http://www.staticurl.com/because/it/will/not/work" } } },
+      query: { "data": { "type": "images", "attributes": { "image-url": "https://imagesapi.s3.amazonaws.com/#{@key}" } } },
       headers: { 'Content-Type' => 'application/vnd.api+json',
                  'Accept' => 'application/vnd.api+json'
                 }
