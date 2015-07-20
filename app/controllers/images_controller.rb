@@ -22,8 +22,6 @@ class ImagesController < ApplicationController
   def create
     @caption = params[:caption]
 
-
-
     apples = HTTParty.patch(
       "http://apiimages.herokuapp.com/images/63",
       query: { "data": { "type": "images", "id": "63", "attributes": {"caption": "#{@caption}" } } },
