@@ -27,6 +27,15 @@ class ImagesController < ApplicationController
 
     end
 
+    get_all_images_from_api = HTTParty.get(
+      "http://apiimages.herokuapp.com/images",
+      headers: { 'Content-Type' => 'application/vnd.api+json',
+                 'Accept' => 'application/vnd.api+json'
+                }
+      )
+
+    @all_images = JSON.parse(get_all_images_from_api)
+
   end
 
   def new
@@ -46,7 +55,7 @@ class ImagesController < ApplicationController
 
     puts caption_to_api.body, caption_to_api.code, caption_to_api.message, caption_to_api.headers.inspect
 
-    redirect_to new_image_path
+    redirect_to images_path
   end
 
 end
