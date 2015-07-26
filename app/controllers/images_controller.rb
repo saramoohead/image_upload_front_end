@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
     if @key != nil
       image_to_api = HTTParty.post(
         "http://apiimages.herokuapp.com/images",
-        query: { "data": { "type": "images", "attributes": { "image-url": "https://imagesapi.s3.amazonaws.com/#{@key}", "caption": "  " } } },
+        query: { "data" => { "type" => "images", "attributes" => { "image-url" => "https://imagesapi.s3.amazonaws.com/#{@key}", "caption" => "  " } } },
         headers: { 'Content-Type' => 'application/vnd.api+json',
                    'Accept' => 'application/vnd.api+json'
                   }
@@ -38,7 +38,7 @@ class ImagesController < ApplicationController
 
     caption_to_api = HTTParty.patch(
       "http://apiimages.herokuapp.com/images/#{@image_id}",
-      query: { "data": { "type": "images", "id": "#{@image_id}", "attributes": {"caption": "#{@caption}" } } },
+      query: { "data" => { "type" => "images", "id" => "#{@image_id}", "attributes" => {"caption" => "#{@caption}" } } },
       headers: { 'Content-Type' => 'application/vnd.api+json',
                  'Accept' => 'application/vnd.api+json'
                 }
