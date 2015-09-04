@@ -34,8 +34,13 @@ class ImagesController < ApplicationController
                 }
       )
 
-    @all_images = JSON.parse(get_all_images_from_api)
+    @all_images = JSON.parse(get_all_images_from_api)["data"]
 
+    # json = JSON.parse(get_all_images_from_api)["data"]
+
+    # @all_images = for each |n|
+    #     json[n]["attributes"]["image-url"]
+    #   end
   end
 
   def new

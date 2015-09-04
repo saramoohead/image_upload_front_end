@@ -1,3 +1,15 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.js"></script>
+
+<h1>Image Uploader Tech Test</h1>
+<p>"Please create 2 things:</p>
+<ul>
+  <li>a webpage that allows an image and a text caption to be uploaded.</li>
+  <li>a JSON feed that contains the image and caption." </li>
+</ul>
+<p>This uploader uses the JSON-API specification for structured building of json apis. It uploads directly from this HTML to AWS. AWS sends back the image location information, which is passed on by a Rails server to the JSON-API.</p>
+
+<%= render 'new' %>
+
 <% if @key %>
   File successfully uploaded to <a href="https://imagesapi.s3.amazonaws.com/<%= @key %>">https://imagesapi.s3.amazonaws.com/<%= @key %></a><br>
   <img src="https://imagesapi.s3.amazonaws.com/<%= @key %>">
@@ -8,5 +20,6 @@
 
 <br>
 
-JSON reponse of all API images:
-<%= @all_images %>
+<div class="grid">
+  <div class="grid-item"><%= @all_images %></div>
+</div>
